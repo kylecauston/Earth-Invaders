@@ -29,7 +29,8 @@ public class InteractionManager : MonoBehaviour
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", CanEnterBuilding.EnterBuilding);
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Enemy, "Storm Building", CanEnterBuilding.EnterBuilding, Interaction.Priority.Low);
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Allied, "Enter Building", CanEnterBuilding.EnterBuilding);
-        
+
+        SetInteraction(typeof(CanRideTransport), typeof(Transport), Globals.Allegiance.Allied, "Board Transport", CanRideTransport.BoardTransport);
     }
 
     public void SetInteraction(Type t1, Type t2, Globals.Allegiance targ, string name, Action<Component, Component> fn, Interaction.Priority p = Interaction.Priority.Medium)
