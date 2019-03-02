@@ -15,11 +15,6 @@ public class Entity : MonoBehaviour
         Debug.Log(initiator.name + " attacks " + target.name);
     }
 
-    public static void EnterBuilding(Component e, Component building)
-    {
-        Debug.Log(e.name + " is entering " + building.name);
-    }
-
     // Start is called before the first frame update
     void Start()
     {

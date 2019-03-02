@@ -26,7 +26,10 @@ public class InteractionManager : MonoBehaviour
         SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Enemy, "Attack", Entity.Attack);
         SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Neutral, "Attack", Entity.Attack, Interaction.Priority.Lowest);
 
-        SetInteraction(typeof(Entity), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", Entity.EnterBuilding);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", CanEnterBuilding.EnterBuilding);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Enemy, "Storm Building", CanEnterBuilding.EnterBuilding, Interaction.Priority.Low);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Allied, "Enter Building", CanEnterBuilding.EnterBuilding);
+        
     }
 
     public void SetInteraction(Type t1, Type t2, Globals.Allegiance targ, string name, Action<Component, Component> fn, Interaction.Priority p = Interaction.Priority.Medium)
@@ -84,7 +87,7 @@ public class InteractionManager : MonoBehaviour
             return false;
         interactions.Sort();
         for(int j=0; j<interactions.Count; j++)
-            Debug.Log(initiator.name + " can " + interactions[j].GetName() + " " + target.name + " with prio=" + interactions[j].GetPriority());
+            Debug.Log(initiator.name + " can " + interactions[j].GetName() + " [" + target.name + "] with prio=" + interactions[j].GetPriority());
 
         i = Mathf.Clamp(i, 0, interactions.Count);
         interactions[i].GetAction().Invoke(initiator, target);
