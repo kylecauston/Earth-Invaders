@@ -11,6 +11,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public Globals.Alignment playerAlignment = Globals.Alignment.Space;
         
         public Entity selectedEntity;
+        public Material ground = null;
 
         private void Awake()
         {
@@ -28,6 +29,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         {
             selectedEntity = e;
             Debug.Log("Selected " + e.name);
+            if(ground && selectedEntity)
+            {
+                ground.SetVector("_Center", selectedEntity.transform.position);
+                ground.SetFloat("_Rotation", selectedEntity.transform.rotation.eulerAngles.y);
+            }
         }
 
         public void EntityClicked(Entity e, int mouseButton)
