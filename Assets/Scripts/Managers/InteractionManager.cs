@@ -23,6 +23,7 @@ public class InteractionManager : MonoBehaviour
 
         interactions = new Dictionary<Tuple<Type, Type, Globals.Allegiance>, Interaction>();
 
+        // TODO: Make Attacker script, Entity should not be able to attack :)
         SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Enemy, "Attack", Entity.Attack);
         SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Neutral, "Attack", Entity.Attack, Interaction.Priority.Lowest);
 
@@ -31,6 +32,8 @@ public class InteractionManager : MonoBehaviour
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Allied, "Enter Building", CanEnterBuilding.EnterBuilding);
 
         SetInteraction(typeof(CanRideTransport), typeof(Transport), Globals.Allegiance.Allied, "Board Transport", CanRideTransport.BoardTransport);
+
+        SetInteraction(typeof(CanAbduct), typeof(Abductable), Globals.Allegiance.Enemy, "Abduct", CanAbduct.Abduct);
     }
 
     public void SetInteraction(Type t1, Type t2, Globals.Allegiance targ, string name, Action<Component, Component> fn, Interaction.Priority p = Interaction.Priority.Medium)
