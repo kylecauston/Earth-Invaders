@@ -10,11 +10,6 @@ public class Entity : MonoBehaviour
     public Globals.Alignment alignment;
     public Globals.Classification classification;
 
-    public static void Attack(Component initiator, Component target)
-    {
-        Debug.Log(initiator.name + " attacks " + target.name);
-    }
-
     // Start is called before the first frame update
     void Start()
     {

@@ -22,10 +22,9 @@ public class InteractionManager : MonoBehaviour
         }
 
         interactions = new Dictionary<Tuple<Type, Type, Globals.Allegiance>, Interaction>();
-
-        // TODO: Make Attacker script, Entity should not be able to attack :)
-        SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Enemy, "Attack", Entity.Attack);
-        SetInteraction(typeof(Entity), typeof(Entity), Globals.Allegiance.Neutral, "Attack", Entity.Attack, Interaction.Priority.Lowest);
+        
+        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Enemy, "Attack", CanAttack.Attack);
+        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Neutral, "Attack", CanAttack.Attack, Interaction.Priority.Lowest);
 
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", CanEnterBuilding.EnterBuilding);
         SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Enemy, "Storm Building", CanEnterBuilding.EnterBuilding, Interaction.Priority.Low);
@@ -88,7 +87,10 @@ public class InteractionManager : MonoBehaviour
         // TODO: Cache interaction list
         List<Interaction> interactions = GetInteractions(initiator, target);
         if (interactions.Count == 0)
+        {
+            Debug.Log("No interactions.");
             return false;
+        }
         interactions.Sort();
         for(int j=0; j<interactions.Count; j++)
             Debug.Log(initiator.name + " can " + interactions[j].GetName() + " [" + target.name + "] with prio=" + interactions[j].GetPriority());
