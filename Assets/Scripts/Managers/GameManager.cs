@@ -28,12 +28,23 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public void SelectEntity(Entity e)
         {
             selectedEntity = e;
-            Debug.Log("Selected " + e.name);
             if(ground && selectedEntity)
             {
                 ground.SetVector("_Center", selectedEntity.transform.position);
                 ground.SetFloat("_Rotation", selectedEntity.transform.rotation.eulerAngles.y);
+
+                ground.SetFloat("_BandWidth", 0.65f);
+                ground.SetColor("_BandColor", (selectedEntity.alignment == playerAlignment) ? Color.blue : selectedEntity.alignment == Globals.Alignment.Neutral ? Color.white : Color.red);
             }
+            else
+            {
+                ground.SetInt("_BandWidth", 0);
+            }
+        }
+
+        private bool CanControl(Entity e)
+        {
+            return (e && e.alignment == playerAlignment);
         }
 
         public void EntityClicked(Entity e, int mouseButton)
@@ -53,7 +64,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             }
             else if (mouseButton == 1) // right click
             {
-                if (!selectedEntity || selectedEntity.alignment != playerAlignment)
+                if (!(CanControl(selectedEntity)))
                     return;
 
                 InteractionManager.instance.Interact(selectedEntity, e, 0);
@@ -71,7 +82,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             // make a SpawnManager?
 
             // if we can move this unit, tell it to move to the location
-            if(selectedEntity && selectedEntity.alignment == playerAlignment)
+            if(CanControl(selectedEntity))
             {
                 // How do we want to do behavior? we need a behavior tree 
                 // for stuff like:
@@ -79,7 +90,25 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 // is translated to
                 // "Move to x" + "Interact with x"
                 // Furthermore, not all entities can move. How do we check this?
-                //selectedEntity.MoveTo(click);
+
+                // detect if the entity can move
+                CanMove movement = selectedEntity.GetComponent<CanMove>();
+                if(movement)
+                {
+                    movement.MoveTo(click);
+                }
+            }
+        }
+
+        public void ActionKey()
+        {
+            if(CanControl(selectedEntity))
+            {
+                Storage s = selectedEntity.gameObject.GetComponent<Storage>();
+                if(s)
+                {
+                    s.Remove(0);
+                }
             }
         }
     }

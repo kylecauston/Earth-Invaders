@@ -88,7 +88,7 @@ public class InteractionManager : MonoBehaviour
         List<Interaction> interactions = GetInteractions(initiator, target);
         if (interactions.Count == 0)
         {
-            Debug.Log("No interactions.");
+            Debug.Log("No interactions between " + initiator.name + " and " + target.name + ".");
             return false;
         }
         interactions.Sort();

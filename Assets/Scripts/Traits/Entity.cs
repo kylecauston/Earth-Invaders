@@ -10,28 +10,14 @@ public class Entity : MonoBehaviour
     public Globals.Alignment alignment;
     public Globals.Classification classification;
 
+    public bool visible = true;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool IsAllied(Entity e)
-    {
-        return e.alignment == this.alignment;
-    }
-
-    public bool IsEnemy(Entity e)
-    {
-        return !(IsAllied(e));
-    }
-
+   
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -41,7 +27,7 @@ public class Entity : MonoBehaviour
 
     public void OnDeath()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void OnMouseEnter()

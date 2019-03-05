@@ -7,5 +7,6 @@ public class CanRideTransport : MonoBehaviour
     public static void BoardTransport(Component e, Component transport)
     {
         Debug.Log(e.name + " is boarding " + transport.name);
+        transport.gameObject.GetComponent<Transport>().Enter(e.gameObject);
     }
 }
