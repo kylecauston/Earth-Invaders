@@ -28,29 +28,29 @@ public class Storage : MonoBehaviour
         return true;
     }
 
-    public void Remove(GameObject go)
+    public GameObject Remove(GameObject go)
     {
-        Remove(stored.IndexOf(go));
+        return Remove(stored.IndexOf(go));
     }
 
-    public void Remove(int i)
+    public GameObject Remove(int i)
     {
         GameObject go = stored[i];
         stored.RemoveAt(i);
         go.GetComponent<Entity>().visible = true;
         go.SetActive(true);
+        return go;
     }
 
     public List<GameObject> EmptyOut()
     {
         List<GameObject> list = new List<GameObject>();
+        int numOccupants = stored.Count;
 
-        for(int i=0; i<stored.Count; i++)
+        for(int i=0; i<numOccupants; i++)
         {
-            list.Add(stored[i]);
+            list.Add(Remove(0));
         }
-        
-        stored.Clear();
         
         return list;
     }

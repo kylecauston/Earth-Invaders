@@ -104,10 +104,15 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         {
             if(CanControl(selectedEntity))
             {
-                Storage s = selectedEntity.gameObject.GetComponent<Storage>();
-                if(s)
+                Building b = selectedEntity.gameObject.GetComponent<Building>();
+                if(!b)
                 {
-                    s.Remove(0);
+                    Transport t = selectedEntity.gameObject.GetComponent<Transport>();
+
+                }
+                else
+                {
+                    b.Boot(0);
                 }
             }
         }
