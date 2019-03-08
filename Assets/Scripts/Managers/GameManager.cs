@@ -35,6 +35,9 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
 
                 ground.SetFloat("_BandWidth", 0.65f);
                 ground.SetColor("_BandColor", (selectedEntity.alignment == playerAlignment) ? Color.blue : selectedEntity.alignment == Globals.Alignment.Neutral ? Color.white : Color.red);
+                // TODO: Add entity.bandSize
+
+                CameraManager.instance.LockTo(selectedEntity.gameObject);
             }
             else
             {

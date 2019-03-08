@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour
     public float moveSpeed = 1.0f;
     public float moveRange = 0.1f;
     
-    private GameObject lockTarget = null;
+    public GameObject lockTarget = null;
 
     private void Awake()
     {
@@ -26,39 +26,41 @@ public class CameraManager : MonoBehaviour
 
     public void Update()
     {
-        if (lockTarget == null)
+        if (lockTarget != null)
         {
-            Vector3 viewportPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            if (viewportPos.x > 1 || viewportPos.y > 1 || viewportPos.x < 0 || viewportPos.y < 0)
-                return;
-
-            if (viewportPos.x > (1.0 - moveRange) || viewportPos.x < moveRange)
-            {
-                if (viewportPos.x < moveRange)
-                {
-                    cameraRoot.transform.Translate(-moveSpeed, 0, moveSpeed);
-                }
-                else
-                {
-                    cameraRoot.transform.Translate(moveSpeed, 0, -moveSpeed);
-                }
-            }
-
-            if (viewportPos.y > (1.0 - moveRange) || viewportPos.y < moveRange)
-            {
-                if (viewportPos.y < moveRange)
-                {
-                    cameraRoot.transform.Translate(-moveSpeed, 0, -moveSpeed);
-                }
-                else
-                {
-                    cameraRoot.transform.Translate(moveSpeed, 0, moveSpeed);
-                }
-            }
+            cameraRoot.transform.SetPositionAndRotation(new Vector3(lockTarget.transform.position.x - 40, cameraRoot.transform.position.y, lockTarget.transform.position.z - 40), cameraRoot.transform.rotation);
         }
-        else
+
+        Vector3 viewportPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        if (viewportPos.x > 1 || viewportPos.y > 1 || viewportPos.x < 0 || viewportPos.y < 0)
+            return;
+
+        if (viewportPos.x > (1.0 - moveRange) || viewportPos.x < moveRange)
         {
-            //mainCamera.transform.SetPositionAndRotation(new Vector3(lockTarget.transform.position.x, 0, lockTarget.transform.position.z), mainCamera.transform.rotation);
+            if (viewportPos.x < moveRange)
+            {
+                cameraRoot.transform.Translate(-moveSpeed, 0, moveSpeed);
+            }
+            else
+            {
+                cameraRoot.transform.Translate(moveSpeed, 0, -moveSpeed);
+            }
+
+            LockTo(null);
+        }
+
+        if (viewportPos.y > (1.0 - moveRange) || viewportPos.y < moveRange)
+        {
+            if (viewportPos.y < moveRange)
+            {
+                cameraRoot.transform.Translate(-moveSpeed, 0, -moveSpeed);
+            }
+            else
+            {
+                cameraRoot.transform.Translate(moveSpeed, 0, moveSpeed);
+            }
+
+            LockTo(null);
         }
     }
 
