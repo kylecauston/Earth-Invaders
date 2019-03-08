@@ -111,11 +111,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 if(!b)
                 {
                     Transport t = selectedEntity.gameObject.GetComponent<Transport>();
-
+                    t.RemoveEntity(0);
                 }
                 else
                 {
-                    b.Boot(0);
+                    b.RemoveEntity(0);
                 }
             }
         }

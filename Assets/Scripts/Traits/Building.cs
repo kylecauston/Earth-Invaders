@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
         return storage.Store(go);
     }
 
-    public GameObject Boot(int i)
+    public GameObject RemoveEntity(int i)
     {
         // we can actually just return the gameobject here, the building is never going to move (i hope)
         return storage.Remove(i);
