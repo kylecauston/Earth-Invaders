@@ -9,8 +9,9 @@
 		_Center("Center", Vector) = (0, 0, 0, 0)
 		_Width("Width", Float) = 10
 		_Rotation("Rotation", Float) = 0
-		_BandColor("Band color", Color) = (1, 0, 0, 1)
-		_BandWidth("Band width", Float) = 2
+		_BandColor("Band Color", Color) = (1, 0, 0, 1)
+		_BandWidth("Band Width", Float) = 2
+		_Shape("Shape", Int) = 0 // 0 - Square, 1 - Circle
     }
     SubShader
     {
@@ -40,6 +41,7 @@
 		float _Rotation;
 		fixed4 _BandColor;
 		float _BandWidth;
+		int _Shape;
 		float Deg2Rad;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -65,11 +67,21 @@
 			float cr = cos(rotRadians); //1
 			float sr = sin(rotRadians); //0
 			float3 rotToVec = float3(toVec.x * cr - toVec.z * sr, toVec.y, toVec.x * sr + toVec.z * cr); 
-			if (abs(rotToVec.x) < _Width / 2 && abs(rotToVec.z) < _Width / 2  // outside square
-				&& (abs(rotToVec.x) > _Width/2 - _BandWidth || abs(rotToVec.z) > _Width/2 - _BandWidth)) // band
+			if (_Shape == 0)
 			{
-				// we are in band
-				o.Albedo = _BandColor;
+				if (abs(rotToVec.x) < _Width / 2 && abs(rotToVec.z) < _Width / 2  // outside square
+					&& (abs(rotToVec.x) > _Width / 2 - _BandWidth || abs(rotToVec.z) > _Width / 2 - _BandWidth)) // band
+				{
+					o.Albedo = _BandColor;
+				}
+			}
+			else {
+
+				float dist = distance(_Center, IN.worldPos);
+				if (dist < _Width + _BandWidth && dist > _Width - _BandWidth)
+				{
+					o.Albedo = _BandColor;
+				}
 			}
         }
         ENDCG
