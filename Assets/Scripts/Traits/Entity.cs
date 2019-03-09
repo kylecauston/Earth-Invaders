@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public enum SelectionShape { Square, Circle };
+
     public int maxHealth;
     public int health;
     public Globals.Alignment alignment;
     public Globals.Classification classification;
+    public SelectionShape ringShape = SelectionShape.Circle;
+    public float ringRadius = 5;
+    public float bandWidth = 5;
 
     public bool visible = true;
 

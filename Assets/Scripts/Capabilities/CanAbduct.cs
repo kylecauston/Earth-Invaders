@@ -20,12 +20,15 @@ public class CanAbduct : MonoBehaviour
         ca.StartCoroutine(ca.TractorBeam(victim.gameObject));
         //victim.gameObject.SetActive(false);
         // TODO: Active ragdoll
-        // Need to deactivate NavMeshAgent but have a way to re-enable it if not grabbed by tractor beam????
-        // Maybe the tractor beam is too difficult.
+        // Need to deactivate victim.NavMeshAgent but have a way to re-enable it if dropped from tractor beam????
         // Or just find what is causing the agent to break.
 
         // TODO: Consider OnDeath calling OnDeath methods for each component, letting them clean up their own stuff.
         //      This would allow CanAbduct to return it's victims to regular states.
+
+        // We could call StartCapture on victim, and call StopCapture if we let them go.
+        // These methods could handle enabling and disabling their own navmesh. 
+        // However, this still requires the OnDeath change.
     }
 
     // TODO: This should really be it's own component, since not everything that captures would use a tractor beam
@@ -38,7 +41,8 @@ public class CanAbduct : MonoBehaviour
             Vector3 targPos = targ.transform.position;
             toShip.Set(myPos.x - targPos.x, myPos.y - targPos.y, myPos.z - targPos.z);
             toShip.Normalize();
-            // TODO: Consider using Animation for this? either just using it for making the movement look good or literally using an animation.
+            // TODO: Consider using Animation for this? either just using it for making the movement look
+            //      good or literally using an animation.
             // There's no reason this needs to be physically moving the entity.
             float v = 0.2f + (Mathf.Pow(1 - (Mathf.Abs(myPos.y - targPos.y) / myPos.y), 2));
             Debug.Log(v);
@@ -47,7 +51,7 @@ public class CanAbduct : MonoBehaviour
             targ.transform.Translate(toShip);
             yield return delay;
         }
-        Debug.Log("Storing.");
+
         storage.Store(targ);
         yield break;
     }

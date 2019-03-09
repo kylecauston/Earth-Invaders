@@ -32,10 +32,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             {
                 ground.SetVector("_Center", selectedEntity.transform.position);
                 ground.SetFloat("_Rotation", selectedEntity.transform.rotation.eulerAngles.y);
-
-                ground.SetFloat("_BandWidth", 0.65f);
+                
                 ground.SetColor("_BandColor", (selectedEntity.alignment == playerAlignment) ? Color.blue : selectedEntity.alignment == Globals.Alignment.Neutral ? Color.white : Color.red);
-                // TODO: Add entity.bandSize
+                ground.SetInt("_Shape", (int) selectedEntity.ringShape);
+                ground.SetFloat("_Width", selectedEntity.ringRadius);
+                ground.SetFloat("_BandWidth", selectedEntity.bandWidth);
 
                 CameraManager.instance.LockTo(selectedEntity.gameObject);
             }
@@ -77,9 +78,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public void TerrainClicked(Vector3 click)
         {
             // When we click the terrain it generally denotes a movement action.
-
-            // How do we check where on a Terrain we clicked?
-            //      Raycast to the terrain!
+            
 
             // if we're in spawn mode, we spawn the unit at the given location
             // make a SpawnManager?
