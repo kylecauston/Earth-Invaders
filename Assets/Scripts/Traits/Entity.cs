@@ -28,6 +28,7 @@ public class Entity : MonoBehaviour
     public void OnDeath()
     {
         //Destroy(gameObject);
+        // TODO: Stop all coroutines
     }
 
     public void OnMouseEnter()
