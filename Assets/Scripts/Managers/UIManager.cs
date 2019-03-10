@@ -48,6 +48,5 @@ public class UIManager : MonoBehaviour
         ground.SetInt("_Shape", (int)e.ringShape);
         ground.SetFloat("_Width", e.ringRadius);
         ground.SetFloat("_BandWidth", e.bandWidth);
-
     }
 }

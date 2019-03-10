@@ -30,6 +30,13 @@ public class Entity : MonoBehaviour
             OnDeath();
     }
 
+    public void GetHealed(int gain)
+    {
+        int last_hp = health;
+        health = Mathf.Min(health + gain, maxHealth);
+        Debug.Log(name + " was healed for " + (health - last_hp));
+    }
+
     public void OnDeath()
     {
         //Destroy(gameObject);

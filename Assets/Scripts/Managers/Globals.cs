@@ -7,7 +7,7 @@ public class Globals : MonoBehaviour
     public static Globals instance = null;
 
     public enum Alignment { Earth, Space, Neutral };
-    public enum Classification { None, Infantry, Heavy, Aerial };
+    public enum Classification { None, Infantry, Heavy, Aerial, Building };
     public enum Allegiance { Allied, Enemy, Neutral };
 
     private void Awake()
