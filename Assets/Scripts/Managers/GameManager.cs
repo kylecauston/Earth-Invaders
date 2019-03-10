@@ -28,21 +28,10 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public void SelectEntity(Entity e)
         {
             selectedEntity = e;
-            if(ground && selectedEntity)
+            if(ground)
             {
-                ground.SetVector("_Center", selectedEntity.transform.position);
-                ground.SetFloat("_Rotation", selectedEntity.transform.rotation.eulerAngles.y);
-                
-                ground.SetColor("_BandColor", (selectedEntity.alignment == playerAlignment) ? Color.blue : selectedEntity.alignment == Globals.Alignment.Neutral ? Color.white : Color.red);
-                ground.SetInt("_Shape", (int) selectedEntity.ringShape);
-                ground.SetFloat("_Width", selectedEntity.ringRadius);
-                ground.SetFloat("_BandWidth", selectedEntity.bandWidth);
-
+                UIManager.instance.SelectEntity(selectedEntity);
                 CameraManager.instance.LockTo(selectedEntity.gameObject);
-            }
-            else
-            {
-                ground.SetInt("_BandWidth", 0);
             }
         }
 
