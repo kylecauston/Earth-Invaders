@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public Color neutralColor = Color.gray;
     public Material ground = null;
 
+    private Vector3 unitPosition;
+
     private void Awake()
     {
         if (instance == null)
@@ -21,6 +23,8 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        unitPosition = new Vector3(0, 0, 0);
     }
 
     public void Update()
@@ -28,7 +32,8 @@ public class UIManager : MonoBehaviour
         TheGameManager.GameManager gm = TheGameManager.GameManager.instance;
         if (gm.selectedEntity)
         {
-            ground.SetVector("_Center", gm.selectedEntity.transform.position);
+            unitPosition.Set(gm.selectedEntity.transform.position.x, 0, gm.selectedEntity.transform.position.z);
+            ground.SetVector("_Center", unitPosition);
             ground.SetFloat("_Rotation", gm.selectedEntity.transform.rotation.eulerAngles.y);
         }
     }
@@ -40,9 +45,6 @@ public class UIManager : MonoBehaviour
             ground.SetInt("_BandWidth", 0);
             return;
         }
-
-        ground.SetVector("_Center", e.transform.position);
-        ground.SetFloat("_Rotation", e.transform.rotation.eulerAngles.y);
 
         ground.SetColor("_BandColor", (e.alignment == TheGameManager.GameManager.instance.playerAlignment) ? allyColor : e.alignment == Globals.Alignment.Neutral ? neutralColor : enemyColor);
         ground.SetInt("_Shape", (int)e.ringShape);

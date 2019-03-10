@@ -5,14 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(Storage))]
 public class CanAbduct : MonoBehaviour
 {
-    public Storage storage;
     public float pullStrength = 0.5f;
 
     private int capturedRadius = 3;   // The distance a victim has to be before being stored
-    
+    private Storage storage;
+
     // cached values
     private Vector3 toShip;
     private WaitForSeconds delay = new WaitForSeconds(0.01f);
+
+    public void Start()
+    {
+        storage = GetComponent<Storage>();
+    }
 
     public static void Abduct(Component primary, Component victim)
     {

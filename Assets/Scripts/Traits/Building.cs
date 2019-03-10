@@ -5,9 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Storage))]
 public class Building : MonoBehaviour
 {
-    public Storage storage;
+    private Storage storage;
     public GameObject[] entrances;
     public static int entranceThreshold = 3;
+
+    public void Start()
+    {
+        storage = GetComponent<Storage>();
+    }
 
     public bool Enter(GameObject go)
     {

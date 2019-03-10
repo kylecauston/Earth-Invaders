@@ -5,8 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Storage))]
 public class Transport : MonoBehaviour
 {
-    public Storage storage;
+    private Storage storage;
     public int boardingRadius = 8;
+
+    public void Start()
+    {
+        storage = GetComponent<Storage>();
+    }
 
     public bool Board(GameObject go)
     {
