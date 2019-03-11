@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
         }
 
         unitPosition = new Vector3(0, 0, 0);
+        ground.SetFloat("_Width", 0);
     }
 
     public void Update()
