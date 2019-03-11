@@ -22,6 +22,9 @@ public class Transport : MonoBehaviour
     {
         // we need to move the entity to somewhere within the range of the transport
         GameObject go = storage.Remove(i);
+        if (!go)
+            return null; 
+
         Vector3 offset = Random.insideUnitCircle * boardingRadius;
         offset.z = offset.y;
         offset.y = 0;

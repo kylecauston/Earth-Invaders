@@ -23,7 +23,6 @@ public class CanAttack : MonoBehaviour
             time = 0.0f;
             if (target.visible)
             {
-                Debug.Log("attacking target.");
                 target.TakeDamage(1);
             }
             else

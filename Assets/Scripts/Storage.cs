@@ -40,6 +40,9 @@ public class Storage : MonoBehaviour
 
     public GameObject Remove(int i)
     {
+        if (i < 0 || GetNumStored() <= 0)
+            return null;
+
         GameObject go = stored[i];
         stored.RemoveAt(i);
         go.GetComponent<Entity>().visible = true;
