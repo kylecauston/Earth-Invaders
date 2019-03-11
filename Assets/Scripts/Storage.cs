@@ -17,6 +17,11 @@ public class Storage : MonoBehaviour
         return stored;
     }
 
+    public int GetNumStored()
+    {
+        return stored.Count;
+    }
+
     public bool Store(GameObject go)
     {
         if (stored.Count >= capacity && capacity != -1) return false;

@@ -5,22 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(Storage))]
 public class Building : MonoBehaviour
 {
-    private Storage storage;
     public GameObject[] entrances;
     public static int entranceThreshold = 3;
 
+    private Entity self = null;
+    private Storage storage;
+
     public void Start()
     {
+        self = GetComponent<Entity>();
         storage = GetComponent<Storage>();
     }
 
     public bool Enter(GameObject go)
     {
+        self.alignment = go.GetComponent<Entity>().alignment;
         return storage.Store(go);
     }
 
     public GameObject RemoveEntity(int i)
     {
+        if(storage.GetNumStored() == 1)
+        {
+            self.alignment = Globals.Alignment.Neutral;
+        }
         // we can actually just return the gameobject here, the building is never going to move (i hope)
         return storage.Remove(i);
     }
