@@ -6,7 +6,8 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager instance = null;
 
-    public Camera camera;
+    private Camera camera;
+
     public Entity hoveredOn;
     public GameObject clickedOn;
 
@@ -20,6 +21,8 @@ public class InputManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        camera = Camera.main;
     }
 
     public void Update()

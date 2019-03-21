@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance = null;
+    private GameObject cameraRoot;
 
-    public GameObject cameraRoot;
     public float moveSpeed = 1.0f;
     public float moveRange = 0.1f;
     
@@ -22,6 +22,8 @@ public class CameraManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        cameraRoot = Camera.main.transform.parent.gameObject;
     }
 
     public void Update()
