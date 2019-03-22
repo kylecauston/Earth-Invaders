@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class FlockMovement : CanMove
 {
-    public int maxSpeed = 1;
+    public int maxSpeed = 10;
     public int slowRadius = 10;
     public int wanderRadius = 10;
 
