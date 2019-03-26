@@ -19,22 +19,25 @@ public class NavMeshMovement : CanMove
 
     void Update()
     {
-        anim.SetFloat(speedID, agent.velocity.magnitude);
-
-        if(Input.GetKeyDown(KeyCode.A))
+        if (anim)
         {
-            anim.SetTrigger(deathID);
-            if (agent.speed != 0)
+            anim.SetFloat(speedID, agent.velocity.magnitude);
+
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                agent.speed = 0;
-                agent.isStopped = true;
-                agent.ResetPath();
-            }
-            else
-            {
-                agent.isStopped = false;
-                agent.ResetPath();
-                agent.speed = 10;
+                anim.SetTrigger(deathID);
+                if (agent.speed != 0)
+                {
+                    agent.speed = 0;
+                    agent.isStopped = true;
+                    agent.ResetPath();
+                }
+                else
+                {
+                    agent.isStopped = false;
+                    agent.ResetPath();
+                    agent.speed = 10;
+                }
             }
         }
     }
