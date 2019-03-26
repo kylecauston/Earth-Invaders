@@ -20,18 +20,13 @@ public class HermiteMovement : CanMove
         return (t < 0.5) ? (2 * Mathf.Pow(t, 2)) : (-1 + (4 - 2 * t) * t);
     }
 
-    public void Update()
-    {
-        
-    }
-
     public override void MoveTo(Vector3 v)
     {
         StopAllCoroutines();
         p0 = this.gameObject.transform.position;
-        m0 = this.gameObject.transform.rotation * Vector3.forward * 5 + p0;
+        m0 = this.gameObject.transform.rotation * Vector3.forward * 10 + p0;
         p1 = new Vector3(v.x, p0.y, v.z);
-        m1 = Vector3.Normalize(p1 - p0)*5 + p1;
+        m1 = Vector3.Normalize(p1 - p0)*10 + p1;
 
         StartCoroutine(Move());
     }
