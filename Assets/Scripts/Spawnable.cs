@@ -14,6 +14,11 @@ public class Spawnable : MonoBehaviour
     
     private Vector3 offset;
 
+    public void Awake()
+    {
+        offset = this.transform.position;
+    }
+
     public void Spawn(Vector3 pos)
     {
         offset = pos;
@@ -32,9 +37,7 @@ public class Spawnable : MonoBehaviour
 
     private void DeployUnit()
     {
-        GameObject go = Instantiate<GameObject>(unitToSpawn);
-        go.transform.SetPositionAndRotation(offset, Quaternion.identity);
-        
+        GameObject go = Instantiate<GameObject>(unitToSpawn, offset, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

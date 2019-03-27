@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass
-  m_Shader: {fileID: 4800000, guid: bb0806d3fda1b2b40959ed3eb609e5e0, type: 3}
+  m_Name: Teleporting Alien
+  m_Shader: {fileID: 4800000, guid: 2c45338549bf0b747ade5ee63f7dcc8b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -56,28 +56,30 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BandWidth: 0.25
+    - _Amplitude: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DentIntensity: 8
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Frequency: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GridSize: 0.75
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Rotation: 46.14149
-    - _Shape: 1
+    - _Radius: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Strength: 1
+    - _TimePassed: 0
     - _UVSec: 0
-    - _Width: 0
     - _ZWrite: 1
     m_Colors:
-    - _BandColor: {r: 0, g: 0, b: 1, a: 1}
-    - _Center: {r: 13.311991, g: 0, b: 12.791838, a: 0}
-    - _Color: {r: 0.2810479, g: 0.49056602, b: 0.20131719, a: 1}
+    - _Center: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.08235294, g: 1, b: 0.010702133, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1308479690379430239
+--- !u!1 &3466099807186225127
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1308479690379430236}
-  - component: {fileID: 1308479690379430237}
-  - component: {fileID: 1308479690379430238}
+  - component: {fileID: 2998489592519435007}
+  - component: {fileID: 3518048856724499081}
+  - component: {fileID: 8676252799067077723}
   m_Layer: 0
-  m_Name: Footsoldier Drop Pod
+  m_Name: Spider Deployer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1308479690379430236
+--- !u!4 &2998489592519435007
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308479690379430239}
+  m_GameObject: {fileID: 3466099807186225127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4611436784732147246}
+  - {fileID: 4304510202028042338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1308479690379430237
+--- !u!111 &3518048856724499081
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308479690379430239}
+  m_GameObject: {fileID: 3466099807186225127}
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 86c93383621dbe34b89835f3082c2204, type: 2}
@@ -49,98 +49,97 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1308479690379430238
+--- !u!114 &8676252799067077723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308479690379430239}
+  m_GameObject: {fileID: 3466099807186225127}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b8b6742a2b612d49ab9775ddd2d9128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 5262962330945108405, guid: 374ef4a9768f47f4b89ce2553de3e6c8, type: 3}
-  unitToSpawn: {fileID: 7430100469012901200, guid: 0a34a8ea70e1cff43ac9b1cf8988e7e4,
+  preview: {fileID: 4448375296119329714, guid: 79e00d1434b8f084abd8a76fdc888364, type: 3}
+  unitToSpawn: {fileID: 6164759084496069257, guid: b45fa148723e6864e930f96be7180f3d,
     type: 3}
-  cost: 0
+  cost: 15
   animationName: Spawn
   uiIcon: {fileID: 0}
   positionMoving: 1
---- !u!1001 &4437181642593803349
+--- !u!1001 &7302819472844271467
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1308479690379430236}
+    m_TransformParent: {fileID: 2998489592519435007}
     m_Modifications:
-    - target: {fileID: 174255426430374516, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 2808669954510847272, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_Name
-      value: Drop Pod
+      value: Spider Drop Pod
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.31
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+    - target: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 174255426430374522, guid: 82a6ab4007df031408703f5b870b2c73, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 82a6ab4007df031408703f5b870b2c73, type: 3}
---- !u!4 &4611436784732147246 stripped
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 802624e7e0cb7854a88f7a092b649e38, type: 3}
+--- !u!4 &4304510202028042338 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 174255426430374523, guid: 82a6ab4007df031408703f5b870b2c73,
+  m_CorrespondingSourceObject: {fileID: 6837698602217572105, guid: 802624e7e0cb7854a88f7a092b649e38,
     type: 3}
-  m_PrefabInstance: {fileID: 4437181642593803349}
+  m_PrefabInstance: {fileID: 7302819472844271467}
   m_PrefabAsset: {fileID: 0}

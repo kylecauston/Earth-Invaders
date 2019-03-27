@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
         if (currentlySelected < 0)
             return;
         
-        Spawnable sp = Instantiate<Spawnable>(spawnables[currentlySelected]);
+        Spawnable sp = Instantiate<Spawnable>(spawnables[currentlySelected], pos, Quaternion.identity);
         sp.Spawn(pos);
     }
 }
