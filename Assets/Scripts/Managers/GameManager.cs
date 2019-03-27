@@ -13,6 +13,8 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public Entity selectedEntity;
         public Material ground = null;
 
+        private int currency = 1000;
+
         private void Awake()
         {
             if(instance == null)
@@ -67,8 +69,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public void TerrainClicked(Vector3 click)
         {
             // When we click the terrain it generally denotes a movement action.
-            
-
+            int i = SpawnManager.instance.GetSelected();
+            if (i != -1 && SpawnManager.instance.spawnables[i].cost < currency)
+            {
+                SpawnManager.instance.Spawn(click);
+            }
             // if we're in spawn mode, we spawn the unit at the given location
             // make a SpawnManager?
 
@@ -93,6 +98,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
 
         public void ActionKey()
         {
+            SpawnManager.instance.SetSelected(0);
             if(CanControl(selectedEntity))
             {
                 Building b = selectedEntity.gameObject.GetComponent<Building>();
@@ -106,6 +112,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                     b.RemoveEntity(0);
                 }
             }
+        }
+
+        public void SpendResource(int amount)
+        {
+            currency = Mathf.Max(0, currency - amount);
         }
     }
 }
