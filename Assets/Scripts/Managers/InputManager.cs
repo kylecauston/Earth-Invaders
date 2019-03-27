@@ -6,10 +6,11 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager instance = null;
 
-    private Camera camera;
-
     public Entity hoveredOn;
     public GameObject clickedOn;
+
+    private Camera camera;
+    private int terrainMask = 1 << 11;
 
     private void Awake()
     {
@@ -36,14 +37,9 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                RaycastHit hit;
-                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out hit, 100, -5, QueryTriggerInteraction.Ignore))
-                {
-                    TheGameManager.GameManager.instance.TerrainClicked(hit.point);
-                }
-                
+                Vector3 pos = new Vector3();
+                if (GetMouseTerrainCoords(out pos))
+                    TheGameManager.GameManager.instance.TerrainClicked(pos);
             }
         }
 
@@ -70,5 +66,19 @@ public class InputManager : MonoBehaviour
             button = 1;
 
         TheGameManager.GameManager.instance.EntityClicked(e, button);
+    }
+
+    public bool GetMouseTerrainCoords(out Vector3 v)
+    {
+        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 100, terrainMask, QueryTriggerInteraction.Ignore))
+        {
+            v = hit.point;
+            return true;
+        }
+        v = new Vector3();
+        return false;
     }
 }
