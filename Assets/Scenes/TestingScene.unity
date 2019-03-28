@@ -262,7 +262,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnables.Array.data[0]
       value: 
-      objectReference: {fileID: 3248568027971266767, guid: f391eb8fa4feb794fadda414a1743691,
+      objectReference: {fileID: 1308479690379430238, guid: 8c4c19a3a8509b648aa733d72566eaff,
         type: 3}
     - target: {fileID: 1639092176577898643, guid: b04a45bd801c5c444945418d9cfc5b2d,
         type: 3}

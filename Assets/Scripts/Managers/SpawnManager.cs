@@ -35,13 +35,20 @@ public class SpawnManager : MonoBehaviour
         if(i < 0 || i > spawnables.Length)
         {
             currentlySelected = -1;
+            Destroy(preview.gameObject);
             preview = null;
             return;
         }
 
+        if (currentlySelected == i)
+            return;
+
         currentlySelected = i;
         // when we select a new unit to spawn, create a preview based on selected unit.
         preview = (SpawnPreview)Instantiate(spawnables[currentlySelected].preview);
+
+        // unselect unit if you're in spawn mode
+        TheGameManager.GameManager.instance.SelectEntity(null);
     }
 
     private void Update()

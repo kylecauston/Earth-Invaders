@@ -66,8 +66,11 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    public void LockTo(GameObject go)
+    public void LockTo(Entity e)
     {
-        lockTarget = go;
+        if (e)
+            lockTarget = e.gameObject;
+        else
+            lockTarget = null;
     }
 }

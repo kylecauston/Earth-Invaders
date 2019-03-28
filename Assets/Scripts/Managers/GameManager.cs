@@ -29,12 +29,20 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
 
         public void SelectEntity(Entity e)
         {
+            if(selectedEntity == e)
+            {
+                e = null;
+            }
+
             selectedEntity = e;
             if(ground)
             {
                 UIManager.instance.SelectEntity(selectedEntity);
-                CameraManager.instance.LockTo(selectedEntity.gameObject);
+                CameraManager.instance.LockTo(selectedEntity);
             }
+
+            if(selectedEntity != null)
+                SpawnManager.instance.SetSelected(-1);
         }
 
         private bool CanControl(Entity e)
@@ -62,6 +70,14 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 if (!(CanControl(selectedEntity)))
                     return;
 
+                // How do we want to do behavior? we need a behavior tree 
+                // for stuff like:
+                // "Interact with [Far Object x]"
+                // is translated to
+                // "Move to x" + "Interact with x"
+                // Furthermore, not all entities can move. How do we check this?
+
+                SpawnManager.instance.SetSelected(-1);
                 InteractionManager.instance.Interact(selectedEntity, e, 0);
             }
         }
@@ -73,20 +89,12 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             if (i != -1 && SpawnManager.instance.spawnables[i].cost < currency)
             {
                 SpawnManager.instance.Spawn(click);
+                return;
             }
-            // if we're in spawn mode, we spawn the unit at the given location
-            // make a SpawnManager?
 
             // if we can move this unit, tell it to move to the location
             if(CanControl(selectedEntity))
             {
-                // How do we want to do behavior? we need a behavior tree 
-                // for stuff like:
-                // "Interact with [Far Object x]"
-                // is translated to
-                // "Move to x" + "Interact with x"
-                // Furthermore, not all entities can move. How do we check this?
-
                 // detect if the entity can move
                 CanMove movement = selectedEntity.GetComponent<CanMove>();
                 if(movement)
