@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public Spawnable[] spawnables;
 
     private int currentlySelected = -1;
-    private GameObject preview;
+    private SpawnPreview preview;
 
     private Vector3 cached = new Vector3();
 
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
 
         currentlySelected = i;
         // when we select a new unit to spawn, create a preview based on selected unit.
-        preview = (GameObject)Instantiate(spawnables[currentlySelected].preview);
+        preview = (SpawnPreview)Instantiate(spawnables[currentlySelected].preview);
     }
 
     private void Update()

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8b6742a2b612d49ab9775ddd2d9128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preview: {fileID: 5262962330945108405, guid: 374ef4a9768f47f4b89ce2553de3e6c8, type: 3}
+  preview: {fileID: 5476416293669808584, guid: 07e9b61a99a542c4481a0541e14db747, type: 3}
   unitToSpawn: {fileID: 7430100469012901200, guid: 0a34a8ea70e1cff43ac9b1cf8988e7e4,
     type: 3}
   cost: 0

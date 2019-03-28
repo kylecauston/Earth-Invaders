@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animation))]
 public class Spawnable : MonoBehaviour
 {
-    public GameObject preview;
+    public SpawnPreview preview;
     public GameObject unitToSpawn;
     public int cost;
     public string animationName;
