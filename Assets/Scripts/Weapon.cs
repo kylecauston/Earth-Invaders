@@ -36,7 +36,6 @@ public class Weapon : MonoBehaviour
         usingCopy = true;
         copy = Instantiate<GameObject>(muzzleFlash);
         Quaternion rot = Quaternion.LookRotation(target - point);
-        Debug.Log(target - point);
         rot *= Quaternion.AngleAxis(90, Vector3.right);
 
         copy.transform.SetPositionAndRotation(point, rot);
@@ -45,7 +44,6 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ShowFlash()
     {
-        Debug.Log("Showing flash.");
         if (usingCopy)
         {
             copy.SetActive(true);
@@ -57,8 +55,6 @@ public class Weapon : MonoBehaviour
         
         yield return delay;
         
-        Debug.Log("Hiding flash.");
-
         if (usingCopy)
         {
             Destroy(copy);

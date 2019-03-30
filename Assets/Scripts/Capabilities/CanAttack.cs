@@ -8,6 +8,13 @@ public class CanAttack : MonoBehaviour
 
     public float time;
 
+    private Weapon weapon;
+
+    public void Start()
+    {
+        weapon = GetComponentInChildren<Weapon>();
+    }
+
     public static void Attack(Component e, Component targ)
     {
         Debug.Log(e.name + " attacks " + targ.name);
@@ -23,6 +30,7 @@ public class CanAttack : MonoBehaviour
             time = 0.0f;
             if (target.visible)
             {
+                weapon.Shoot();
                 target.TakeDamage(1);
             }
             else
