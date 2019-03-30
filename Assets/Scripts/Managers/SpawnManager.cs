@@ -35,7 +35,8 @@ public class SpawnManager : MonoBehaviour
         if(i < 0 || i > spawnables.Length)
         {
             currentlySelected = -1;
-            Destroy(preview.gameObject);
+            if(preview)
+                Destroy(preview.gameObject);
             preview = null;
             return;
         }
