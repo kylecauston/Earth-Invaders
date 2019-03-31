@@ -68,16 +68,16 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Rotation: 113.18538
+    - _Rotation: 128.07178
     - _Shape: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _Width: 0
+    - _Width: 4
     - _ZWrite: 1
     m_Colors:
     - _BandColor: {r: 0, g: 0, b: 1, a: 1}
-    - _Center: {r: -1.4374161, g: 0, b: -21.236485, a: 0}
+    - _Center: {r: 13.460114, g: 0, b: -16.665733, a: 0}
     - _Color: {r: 0.2810479, g: 0.49056602, b: 0.20131719, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -78,7 +78,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 // Furthermore, not all entities can move. How do we check this?
 
                 SpawnManager.instance.SetSelected(-1);
-                InteractionManager.instance.Interact(selectedEntity, e, 0);
+                AgentAI ai = selectedEntity.GetComponent<AgentAI>();
+                Interaction interaction = InteractionManager.instance.GetInteraction(selectedEntity, e, 0);
+                if (ai && interaction != null)
+                    ai.AssignTask(interaction, e.gameObject);
+                
             }
         }
 
@@ -106,7 +110,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
 
         public void ActionKey()
         {
-            SpawnManager.instance.SetSelected(0);
+            //SpawnManager.instance.SetSelected(0);
             if(CanControl(selectedEntity))
             {
                 Building b = selectedEntity.gameObject.GetComponent<Building>();

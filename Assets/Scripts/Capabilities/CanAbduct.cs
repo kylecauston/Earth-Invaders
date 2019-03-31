@@ -6,6 +6,7 @@ using UnityEngine;
 public class CanAbduct : MonoBehaviour
 {
     public float pullStrength = 0.5f;
+    public int abductRadius = 8;
 
     private int capturedRadius = 3;   // The distance a victim has to be before being stored
     private Storage storage;

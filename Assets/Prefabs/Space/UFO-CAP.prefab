@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 659995362149719317}
   - component: {fileID: 659995362149719529}
   - component: {fileID: 2974397209026526992}
+  - component: {fileID: 4103973177906587039}
   m_Layer: 0
   m_Name: UFO-CAP
   m_TagString: Untagged
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullStrength: 1
+  abductRadius: 8
 --- !u!195 &659995362149719529
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -220,6 +222,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 618c393984ae4c34ba1a3ed9619aab59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4103973177906587039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659995362149719314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbba13e3f4f7bb408b7d22956ce91d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7031984935698722126

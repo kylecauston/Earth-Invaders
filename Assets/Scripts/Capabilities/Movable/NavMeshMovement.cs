@@ -47,4 +47,22 @@ public class NavMeshMovement : CanMove
         agent.SetDestination(v);
     }
 
+    public override bool Arrived()
+    {
+        // after lots of trial and lots of error the solution posed here
+        // http://answers.unity.com/answers/746157/view.html
+        // seems to be the best solution
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }

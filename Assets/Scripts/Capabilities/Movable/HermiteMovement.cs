@@ -50,4 +50,10 @@ public class HermiteMovement : CanMove
 
         yield break;
     }
+
+    public override bool Arrived()
+    {
+        // not implmented since we don't use it right now
+        throw new System.NotImplementedException();
+    }
 }

@@ -123,4 +123,9 @@ public class FollowerFlock : FlockMovement
         // do nothing, flocks can't be assigned movement
         // or do we set this to be the seek??
     }
+
+    public override bool Arrived()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -29,7 +29,6 @@ public class Transport : MonoBehaviour
         offset.z = offset.y;
         offset.y = 0;
         offset *= (Random.Range(0, 1) < 0.5 ? -1 : 1);
-        Debug.Log(offset);
         go.transform.SetPositionAndRotation(this.transform.position + offset, go.transform.rotation);
         return go;
     }

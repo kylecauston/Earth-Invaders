@@ -5,10 +5,13 @@ using UnityEngine;
 public class CanAttack : MonoBehaviour
 {
     public Entity target;
-
     public float time;
 
     private Weapon weapon;
+
+    // TODO: make this use IEnumerator instead
+    // Also add raycast check, which also covers weapon range. Or should this be on Weapon?
+    // Also make array of weapons.
 
     public void Start()
     {
@@ -17,7 +20,6 @@ public class CanAttack : MonoBehaviour
 
     public static void Attack(Component e, Component targ)
     {
-        Debug.Log(e.name + " attacks " + targ.name);
         e.gameObject.GetComponent<CanAttack>().target = targ.gameObject.GetComponent<Entity>();
     }
 

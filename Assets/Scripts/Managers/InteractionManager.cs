@@ -6,7 +6,6 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager instance = null;
-    public string NO_ACTION = "NO_ACTION";
 
     private Dictionary<Tuple<Type, Type, Globals.Allegiance>, Interaction> interactions;
 
@@ -23,22 +22,21 @@ public class InteractionManager : MonoBehaviour
 
         interactions = new Dictionary<Tuple<Type, Type, Globals.Allegiance>, Interaction>();
         
-        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Enemy, "Attack", CanAttack.Attack);
-        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Neutral, "Attack", CanAttack.Attack, Interaction.Priority.Lowest);
+        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Enemy, "Attack", CanAttack.Attack, AgentAI.Task.Attack);
+        SetInteraction(typeof(CanAttack), typeof(Entity), Globals.Allegiance.Neutral, "Attack", CanAttack.Attack, AgentAI.Task.Attack, Interaction.Priority.Lowest);
 
-        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", CanEnterBuilding.EnterBuilding);
-        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Enemy, "Storm Building", CanEnterBuilding.EnterBuilding, Interaction.Priority.Low);
-        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Allied, "Enter Building", CanEnterBuilding.EnterBuilding);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Neutral, "Enter Building", CanEnterBuilding.EnterBuilding, AgentAI.Task.EnterBuilding);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Enemy, "Storm Building", CanEnterBuilding.EnterBuilding, AgentAI.Task.EnterBuilding, Interaction.Priority.Low);
+        SetInteraction(typeof(CanEnterBuilding), typeof(Building), Globals.Allegiance.Allied, "Enter Building", CanEnterBuilding.EnterBuilding, AgentAI.Task.EnterBuilding);
 
-        SetInteraction(typeof(CanRideTransport), typeof(Transport), Globals.Allegiance.Allied, "Board Transport", CanRideTransport.BoardTransport);
+        SetInteraction(typeof(CanRideTransport), typeof(Transport), Globals.Allegiance.Allied, "Board Transport", CanRideTransport.BoardTransport, AgentAI.Task.BoardTransport);
 
-        SetInteraction(typeof(CanAbduct), typeof(Abductable), Globals.Allegiance.Enemy, "Abduct", CanAbduct.Abduct);
+        SetInteraction(typeof(CanAbduct), typeof(Abductable), Globals.Allegiance.Enemy, "Abduct", CanAbduct.Abduct, AgentAI.Task.Abduct);
     }
 
-    public void SetInteraction(Type t1, Type t2, Globals.Allegiance targ, string name, Action<Component, Component> fn, Interaction.Priority p = Interaction.Priority.Medium)
+    public void SetInteraction(Type t1, Type t2, Globals.Allegiance targ, string name, Action<Component, Component> fn, AgentAI.Task task, Interaction.Priority p = Interaction.Priority.Medium)
     {
-        interactions.Add(new Tuple<Type, Type, Globals.Allegiance>(t1, t2, targ), 
-            new Interaction(name, fn, p));
+        interactions.Add(new Tuple<Type, Type, Globals.Allegiance>(t1, t2, targ), new Interaction(name, fn, p, task));
     }
 
     // Return the Action that is called when c1 interacts with c2.
@@ -81,22 +79,22 @@ public class InteractionManager : MonoBehaviour
         return list;
     }
 
-    // Perform the ith interaction between initiator and target.
-    public bool Interact(Entity initiator, Entity target, int i)
+    // Return the ith interaction between initiator and target.
+    public Interaction GetInteraction(Entity initiator, Entity target, int i)
     {
         // TODO: Cache interaction list
         List<Interaction> interactions = GetInteractions(initiator, target);
         if (interactions.Count == 0)
         {
             Debug.Log("No interactions between " + initiator.name + " and " + target.name + ".");
-            return false;
+            return null;
         }
         interactions.Sort();
         for(int j=0; j<interactions.Count; j++)
             Debug.Log(initiator.name + " can " + interactions[j].GetName() + " [" + target.name + "] with prio=" + interactions[j].GetPriority());
 
         i = Mathf.Clamp(i, 0, interactions.Count);
-        interactions[i].GetAction().Invoke(initiator, target);
-        return true;
+        //interactions[i].Trigger(initiator, target);
+        return interactions[i];
     }
 }

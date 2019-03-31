@@ -33,4 +33,9 @@ public class LeaderFlock : FlockMovement
         target = v;
         mode = Mode.Seek;
     }
+
+    public override bool Arrived()
+    {
+        throw new System.NotImplementedException();
+    }
 }

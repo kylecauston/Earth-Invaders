@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 5986325853305019874}
   - component: {fileID: 888378322543120618}
   - component: {fileID: 7716655720398357875}
-  - component: {fileID: 1267423264898762790}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -143,19 +142,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1267423264898762790
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068123642558839964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7430100469012901200
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +158,7 @@ GameObject:
   - component: {fileID: 7430100469012901213}
   - component: {fileID: 7430100469012901208}
   - component: {fileID: 7550598637409896118}
+  - component: {fileID: 193202026382244190}
   m_Layer: 0
   m_Name: Footsoldier Alien
   m_TagString: Untagged
@@ -299,6 +286,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618c393984ae4c34ba1a3ed9619aab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &193202026382244190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430100469012901200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbba13e3f4f7bb408b7d22956ce91d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7430100469514312670
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +386,6 @@ GameObject:
   - component: {fileID: 2447367736753282291}
   - component: {fileID: 9042887499589930161}
   - component: {fileID: 1395630944127453615}
-  - component: {fileID: 965256585366636441}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -454,19 +452,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &965256585366636441
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8668383489488737829}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &485384294458090423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,11 +534,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8331158604131263832, guid: 35001b76ad7754347a966fdb12ffca03,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1173904011312075719, guid: 35001b76ad7754347a966fdb12ffca03,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -563,6 +543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331158604131263832, guid: 35001b76ad7754347a966fdb12ffca03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35001b76ad7754347a966fdb12ffca03, type: 3}
