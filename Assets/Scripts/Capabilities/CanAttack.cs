@@ -13,6 +13,8 @@ public class CanAttack : MonoBehaviour
 
     public Entity target;
 
+    private Entity entityComponent;
+
     private Weapon weapon;
     private CanMove moveComponent;
     private WaitForSeconds delay;
@@ -33,6 +35,7 @@ public class CanAttack : MonoBehaviour
 
     public void Start()
     {
+        entityComponent = this.gameObject.GetComponent<Entity>();
         weapon = GetComponentInChildren<Weapon>();
         moveComponent = GetComponent<CanMove>();
         delay = new WaitForSeconds(1.0f / weapon.GetFirerate());
@@ -71,12 +74,21 @@ public class CanAttack : MonoBehaviour
 
     public void SetTarget(Entity e)
     {
+        // Don't do anything when we target the same entity.
+        if (e == target)
+            return;
+
         StopAllCoroutines();
         target = e;
         if(target)
         {
             StartCoroutine(Attack());
         }
+    }
+
+    public Entity GetTarget()
+    {
+        return target;
     }
 
     private bool CanHitTarget()
@@ -152,7 +164,7 @@ public class CanAttack : MonoBehaviour
         if (target && target.visible)
         {
             weapon.Shoot();
-            target.TakeDamage(weapon.GetDamage());
+            target.TakeDamage(weapon.GetDamage(), entityComponent);
         }
         else
         {
