@@ -11,6 +11,8 @@ public class NavMeshMovement : CanMove
     private int speedID = Animator.StringToHash("Speed");
     private int deathID = Animator.StringToHash("Die");
 
+    private bool moving = false;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -40,10 +42,16 @@ public class NavMeshMovement : CanMove
                 }
             }
         }
+
+        if(moving && Arrived())
+        {
+            moving = false;
+        }
     }
 
     public override void MoveTo(Vector3 v)
     {
+        moving = true;
         agent.SetDestination(v);
     }
 
@@ -64,5 +72,10 @@ public class NavMeshMovement : CanMove
         }
 
         return false;
+    }
+
+    public override bool IsMoving()
+    {
+        return moving;
     }
 }

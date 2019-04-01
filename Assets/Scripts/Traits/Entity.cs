@@ -17,13 +17,13 @@ public class Entity : MonoBehaviour
 
     public bool visible = true;
 
-    private CanAttack attackComponent;
+    private AgentAI ai;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        attackComponent = GetComponent<CanAttack>();
+        ai = GetComponent<AgentAI>();
     }
    
     public void TakeDamage(int damage, Entity attacker)
@@ -32,8 +32,10 @@ public class Entity : MonoBehaviour
         if (health <= 0)
             OnDeath();
 
-        if (attackComponent && attackComponent.target == null)
-            attackComponent.SetTarget(attacker);
+        if(ai)
+        {
+            ai.HandleDamage(attacker);
+        }
     }
 
     public void GetHealed(int gain)

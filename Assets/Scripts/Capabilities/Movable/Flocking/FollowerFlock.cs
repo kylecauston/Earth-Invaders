@@ -128,4 +128,9 @@ public class FollowerFlock : FlockMovement
     {
         throw new System.NotImplementedException();
     }
+
+    public override bool IsMoving()
+    {
+        throw new System.NotImplementedException();
+    }
 }

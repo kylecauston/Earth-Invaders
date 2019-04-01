@@ -56,4 +56,9 @@ public class HermiteMovement : CanMove
         // not implmented since we don't use it right now
         throw new System.NotImplementedException();
     }
+
+    public override bool IsMoving()
+    {
+        throw new System.NotImplementedException();
+    }
 }

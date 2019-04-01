@@ -7,4 +7,5 @@ public abstract class CanMove : MonoBehaviour
 {
     public abstract void MoveTo(Vector3 v);
     public abstract bool Arrived();
+    public abstract bool IsMoving();
 }

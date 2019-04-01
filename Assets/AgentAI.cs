@@ -147,6 +147,12 @@ public class AgentAI : MonoBehaviour
         }
     }
 
+    public void HandleDamage(Entity attacker)
+    {
+        if (attackComponent && attackComponent.target == null && moveComponent && !moveComponent.IsMoving())
+            attackComponent.SetTarget(attacker);
+    }
+
     private void ResolveInteraction()
     {
         onArrive.Trigger(initiator, target);
