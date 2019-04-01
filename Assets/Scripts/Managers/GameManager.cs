@@ -27,6 +27,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             }
         }
 
+        public Entity GetSelectedEntity()
+        {
+            return selectedEntity;
+        }
+
         public void SelectEntity(Entity e)
         {
             if(selectedEntity == e)

@@ -25,11 +25,18 @@ public class Building : MonoBehaviour
 
     public GameObject RemoveEntity(int i)
     {
-        if(storage.GetNumStored() == 1)
+        GameObject go = storage.Remove(i);
+        // if the building is now empty
+        if (storage.GetNumStored() == 0)
         {
             self.alignment = Globals.Alignment.Neutral;
+            if (TheGameManager.GameManager.instance.GetSelectedEntity().gameObject == this.gameObject)
+            {
+                TheGameManager.GameManager.instance.SelectEntity(go.GetComponent<Entity>());
+            }
         }
         // we can actually just return the gameobject here, the building is never going to move (i hope)
-        return storage.Remove(i);
+
+        return go;
     }
 }

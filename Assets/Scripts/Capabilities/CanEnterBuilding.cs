@@ -14,6 +14,11 @@ public class CanEnterBuilding : MonoBehaviour
             {
                 b.Enter(e.gameObject);
                 Debug.Log(e.name + " is entering " + building.name);
+                // check if this is our selected unit, if it is, select the building now.
+                if(TheGameManager.GameManager.instance.GetSelectedEntity().gameObject == e.gameObject)
+                {
+                    TheGameManager.GameManager.instance.SelectEntity(b.GetComponent<Entity>());
+                }
                 break;
             }
         }

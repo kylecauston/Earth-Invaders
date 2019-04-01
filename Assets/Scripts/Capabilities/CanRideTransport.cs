@@ -12,6 +12,11 @@ public class CanRideTransport : MonoBehaviour
         if(Vector3.Distance(e.gameObject.transform.position, t.gameObject.transform.position) < t.boardingRadius)
         {
             t.Board(e.gameObject);
+
+            if (TheGameManager.GameManager.instance.GetSelectedEntity().gameObject == e.gameObject)
+            {
+                TheGameManager.GameManager.instance.SelectEntity(t.GetComponent<Entity>());
+            }
         }
     }
 }
