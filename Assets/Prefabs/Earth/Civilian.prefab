@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 5972747767246542827}
   - component: {fileID: 5972747767246542829}
   - component: {fileID: 5972747767246542824}
+  - component: {fileID: 8975357416996756276}
+  - component: {fileID: 6474000381310152157}
+  - component: {fileID: 7820181722743877770}
   m_Layer: 12
   m_Name: Civilian
   m_TagString: Untagged
@@ -77,6 +80,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a21a5f5f0cc84f43a091f61f8c15cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8975357416996756276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972747767246542825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbba13e3f4f7bb408b7d22956ce91d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &6474000381310152157
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972747767246542825}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7820181722743877770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972747767246542825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618c393984ae4c34ba1a3ed9619aab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5972747767449225509

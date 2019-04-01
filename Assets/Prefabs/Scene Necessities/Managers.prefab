@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c349ac543e7d5cc4fa3bd91a42b0c45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NO_ACTION: NO_ACTION
 --- !u!1 &8566884431233434645
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,4 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495f8a67ecf3eaf499aebd997f32e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnables: []
+  spawnables:
+  - {fileID: 1308479690379430238, guid: 8c4c19a3a8509b648aa733d72566eaff, type: 3}
+  - {fileID: 8676252799067077723, guid: 58f79cb0b755dd742920ecd7bc9568a2, type: 3}
+  - {fileID: 3248568027971266767, guid: f391eb8fa4feb794fadda414a1743691, type: 3}
