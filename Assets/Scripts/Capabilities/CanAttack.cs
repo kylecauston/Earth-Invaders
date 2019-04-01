@@ -19,6 +19,7 @@ public class CanAttack : MonoBehaviour
     private CanMove moveComponent;
     private WaitForSeconds delay;
 
+    private int targetMask; // ignore allies in raycasts
     private float lastFireRate = -1;
     private float secondsBetweenDistanceChecks = 0.5f;
     private float secondsSinceCheck = 0;
@@ -36,6 +37,9 @@ public class CanAttack : MonoBehaviour
     public void Start()
     {
         entityComponent = this.gameObject.GetComponent<Entity>();
+        // ignore our own units when calc LoS
+        targetMask = ~(1 << (entityComponent.alignment == Globals.Alignment.Earth ? LayerMask.NameToLayer("Earth Units") : LayerMask.NameToLayer("Space Units")));
+
         weapon = GetComponentInChildren<Weapon>();
         moveComponent = GetComponent<CanMove>();
         delay = new WaitForSeconds(1.0f / weapon.GetFirerate());
@@ -103,7 +107,7 @@ public class CanAttack : MonoBehaviour
             return false;
         }
 
-        if (Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), ~0, QueryTriggerInteraction.Ignore) > 0)
+        if (Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), targetMask, QueryTriggerInteraction.Ignore) > 0)
         {
             Debug.Log(raycastHits[0].collider.name);
             if (target && raycastHits[0].collider.transform.IsChildOf(target.transform))
@@ -131,7 +135,7 @@ public class CanAttack : MonoBehaviour
             ray.origin = corners[i];
             ray.direction = target.transform.position - corners[i];
             // cast to the target from the corner
-            if (Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), ~0, QueryTriggerInteraction.Ignore) > 0)
+            if (Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), targetMask, QueryTriggerInteraction.Ignore) > 0)
             {
                 // if we hit the target from this corner, we're done
                 if (target && raycastHits[0].collider.transform.IsChildOf(target.transform))

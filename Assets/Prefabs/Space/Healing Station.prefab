@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4325863256877482971}
   - component: {fileID: 4325863256877482949}
   - component: {fileID: 4325863256877482970}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Healing Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4325863256951664112}
   - component: {fileID: 4325863256951664113}
   - component: {fileID: 8165009656136180072}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 3121611449057471034}
   - component: {fileID: 7322644857883256223}
   - component: {fileID: 4042137222300384864}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visible Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

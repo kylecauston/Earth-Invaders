@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3621001374696238439}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8501197684131768599}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 5986325853305019874}
   - component: {fileID: 888378322543120618}
   - component: {fileID: 7716655720398357875}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7430100469012901208}
   - component: {fileID: 7550598637409896118}
   - component: {fileID: 193202026382244190}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Footsoldier Alien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  time: 0
 --- !u!114 &7430100469012901212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +308,8 @@ GameObject:
   - component: {fileID: 7430100469514312671}
   - component: {fileID: 7430100469514312666}
   - component: {fileID: 7430100469514312669}
-  m_Layer: 0
+  - component: {fileID: 8354350443724884073}
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,6 +375,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8354350443724884073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430100469514312670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8668383489488737829
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +399,7 @@ GameObject:
   - component: {fileID: 2447367736753282291}
   - component: {fileID: 9042887499589930161}
   - component: {fileID: 1395630944127453615}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,6 +476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976419358242422141, guid: 35001b76ad7754347a966fdb12ffca03,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5976419358242422134, guid: 35001b76ad7754347a966fdb12ffca03,
         type: 3}
@@ -548,6 +566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331158604131263832, guid: 35001b76ad7754347a966fdb12ffca03,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35001b76ad7754347a966fdb12ffca03, type: 3}

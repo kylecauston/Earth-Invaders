@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 153725153}
   - component: {fileID: 153725152}
   - component: {fileID: 153725151}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 255947460}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 583631382}
   - component: {fileID: 583631381}
   - component: {fileID: 583631380}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Zergling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 1316299011}
   - component: {fileID: 1316299010}
   - component: {fileID: 1316299009}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672996141}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 2125880388}
   - component: {fileID: 2125880387}
   - component: {fileID: 2125880386}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

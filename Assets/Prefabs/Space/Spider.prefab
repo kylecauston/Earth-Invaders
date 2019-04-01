@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3209897493713206650}
   - component: {fileID: 3210727891971299162}
   - component: {fileID: 6727480323212960649}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8315510641489316940}
   - component: {fileID: 5586189187759604848}
   - component: {fileID: 7974803942822789530}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 3088458912427658231}
   - component: {fileID: 8991102745686507333}
   - component: {fileID: 2806639759717020839}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Abdomen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 1185902346878239531}
   - component: {fileID: 139054420521825301}
   - component: {fileID: 159176972390099562}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 933778384197830355}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 6164759084496068979}
   - component: {fileID: 6164759084496068980}
   - component: {fileID: 5692959928720216212}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 6164759084579979238}
   - component: {fileID: 6164759084579979239}
   - component: {fileID: 6164759084579979256}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5137670694940875788}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 4716778141064540687}
   - component: {fileID: 3798808767274272035}
   - component: {fileID: 900392227385107647}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

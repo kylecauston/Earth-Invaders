@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5616630509073511901}
   - component: {fileID: 5616630509073511896}
   - component: {fileID: 5616630509073511903}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5616630509126687154}
   - component: {fileID: 5616630509126687053}
   - component: {fileID: 5616630509126687052}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 5616630509500755847}
   - component: {fileID: 5616630509500755840}
   - component: {fileID: 5616630509500755841}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Teleporter
   m_TagString: Teleporter
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 5616630509633618449}
   - component: {fileID: 5616630509633618448}
   - component: {fileID: 5616630509633618450}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visible Aura
   m_TagString: Teleporter
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5616630510320405665}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

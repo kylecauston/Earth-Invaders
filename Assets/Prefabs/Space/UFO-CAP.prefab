@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 659995360257202905}
   - component: {fileID: 659995360257202886}
   - component: {fileID: 659995360257202887}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 659995362149719529}
   - component: {fileID: 2974397209026526992}
   - component: {fileID: 4103973177906587039}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: UFO-CAP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 9113319276681773829}
   - component: {fileID: 9202988011723995357}
   - component: {fileID: 8660175038152975675}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
