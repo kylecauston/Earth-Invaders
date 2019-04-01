@@ -37,7 +37,7 @@ public class CanAttack : MonoBehaviour
     public void Start()
     {
         entityComponent = this.gameObject.GetComponent<Entity>();
-        // ignore our own units when calc LoS
+        // ignore allied units when calc LoS
         targetMask = ~(1 << (entityComponent.alignment == Globals.Alignment.Earth ? LayerMask.NameToLayer("Earth Units") : LayerMask.NameToLayer("Space Units")));
 
         weapon = GetComponentInChildren<Weapon>();
@@ -46,7 +46,7 @@ public class CanAttack : MonoBehaviour
         lastFireRate = weapon.GetFirerate();
 
         ray = new Ray();
-        raycastHits = new RaycastHit[1];
+        raycastHits = new RaycastHit[10];
         path = new NavMeshPath();
     }
 
@@ -107,10 +107,22 @@ public class CanAttack : MonoBehaviour
             return false;
         }
 
-        if (Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), targetMask, QueryTriggerInteraction.Ignore) > 0)
+        int numHit = Physics.RaycastNonAlloc(ray, raycastHits, weapon.GetMaxRange(), targetMask, QueryTriggerInteraction.Ignore);
+        if(numHit == 10)
         {
-            Debug.Log(raycastHits[0].collider.name);
-            if (target && raycastHits[0].collider.transform.IsChildOf(target.transform))
+            Debug.LogError("Raycast has reached capacity. This may cause problems -- consider increasing cache size.");
+        }
+        if (numHit > 0)
+        {
+            int closestIndex = 0;
+            for(int i=0; i<numHit; i++)
+            {
+                if(raycastHits[i].distance < raycastHits[closestIndex].distance)
+                {
+                    closestIndex = i;
+                }
+            }
+            if (target && raycastHits[closestIndex].collider.transform.IsChildOf(target.transform))
                 return true;
         }
 
