@@ -30,7 +30,10 @@ public class AgentAI : MonoBehaviour
     {
         onArrive = interaction;
         Task task = onArrive.GetTask();
-        Debug.Log(task.ToString());
+        if(attackComponent)
+        {
+            attackComponent.SetTarget(null);
+        }
         if (task == Task.EnterBuilding)
         {
             if (!moveComponent)
@@ -82,6 +85,10 @@ public class AgentAI : MonoBehaviour
             // if one can, switch to it and start attacking
             // if not, find a suitable location and Move to it
             //      suitable location = location in range and LoS to enemy
+            target = go.GetComponent<Entity>();
+            initiator = attackComponent;
+            ResolveInteraction();
+            return;
         }
         else if (task == Task.BoardTransport)
         {
@@ -107,7 +114,6 @@ public class AgentAI : MonoBehaviour
         }
         else if (task == Task.Abduct)
         {
-            Debug.Log("abducting time!");
             // determine abduct range
             Abductable abductable = go.GetComponent<Abductable>();
             target = abductable;

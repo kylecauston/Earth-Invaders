@@ -20,6 +20,26 @@ public class Weapon : MonoBehaviour
         delay = new WaitForSeconds(flashLength);
     }
 
+    public float GetFirerate()
+    {
+        return weaponData.firerate;
+    }
+
+    public int GetDamage()
+    {
+        return weaponData.damagePerShot;
+    }
+
+    public int GetMinRange()
+    {
+        return weaponData.minRange;
+    }
+
+    public int GetMaxRange()
+    {
+        return weaponData.maxRange;
+    }
+
     public void Shoot()
     {
         AnimateShot();

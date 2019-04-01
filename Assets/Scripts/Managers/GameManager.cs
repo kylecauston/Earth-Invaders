@@ -103,6 +103,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 CanMove movement = selectedEntity.GetComponent<CanMove>();
                 if(movement)
                 {
+                    CanAttack attack = selectedEntity.GetComponent<CanAttack>();
+                    if(attack)
+                    {
+                        attack.target = null;
+                    }
                     movement.MoveTo(click);
                 }
             }

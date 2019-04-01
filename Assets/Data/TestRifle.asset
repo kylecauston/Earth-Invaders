@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestRifle
   m_EditorClassIdentifier: 
   minRange: 0
-  maxRange: 1000
+  maxRange: 30
   damagePerShot: 10
-  firerate: 100
+  firerate: 3.78
