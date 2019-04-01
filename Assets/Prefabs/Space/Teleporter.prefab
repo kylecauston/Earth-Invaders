@@ -205,8 +205,8 @@ MonoBehaviour:
   alignment: 1
   classification: 0
   ringShape: 1
-  ringRadius: 20
-  bandWidth: 5
+  ringRadius: 11
+  bandWidth: 0.65
   visible: 1
 --- !u!135 &5616630509500755841
 SphereCollider:
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 5616630509633618455}
   - component: {fileID: 5616630509633618449}
   - component: {fileID: 5616630509633618448}
-  - component: {fileID: 5616630509633618450}
+  - component: {fileID: 1725846772}
   m_Layer: 13
   m_Name: Visible Aura
   m_TagString: Teleporter
@@ -249,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 5616630509633618454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.71, z: 0}
-  m_LocalScale: {x: 20, y: 0.01, z: 20}
+  m_LocalScale: {x: 20, y: 0.16, z: 20}
   m_Children: []
   m_Father: {fileID: 5616630509500755847}
   m_RootOrder: 1
@@ -299,19 +299,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5616630509633618450
-SphereCollider:
+--- !u!64 &1725846772
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5616630509633618454}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5616630510320405664
 GameObject:
   m_ObjectHideFlags: 0
