@@ -37,7 +37,7 @@ public class Spawnable : MonoBehaviour
 
     private void DeployUnit()
     {
-        GameObject go = Instantiate<GameObject>(unitToSpawn, offset, Quaternion.identity);
+        GameObject go = Instantiate<GameObject>(unitToSpawn, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

@@ -59,11 +59,13 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DentIntensity: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
     - _Glossiness: 0.709
     - _GlossyReflections: 1
+    - _GridSize: 8
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
@@ -71,8 +73,10 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TimePassed: 0
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
+    - _Bottom: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.16322534, g: 0.25574043, b: 0.26415092, a: 0.78431374}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class NavMeshMovement : CanMove
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private Animator anim;
     private int speedID = Animator.StringToHash("Speed");
     private int deathID = Animator.StringToHash("Die");

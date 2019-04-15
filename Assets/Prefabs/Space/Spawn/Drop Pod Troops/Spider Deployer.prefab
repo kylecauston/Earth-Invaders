@@ -64,8 +64,8 @@ MonoBehaviour:
   preview: {fileID: 2647260485220664455, guid: 79e00d1434b8f084abd8a76fdc888364, type: 3}
   unitToSpawn: {fileID: 6164759084496069257, guid: b45fa148723e6864e930f96be7180f3d,
     type: 3}
-  cost: 15
-  animationName: Spawn
+  cost: 150
+  animationName: DropSpawn
   uiIcon: {fileID: 0}
   positionMoving: 1
 --- !u!1001 &7302819472844271467

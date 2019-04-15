@@ -76,6 +76,7 @@ public class InteractionManager : MonoBehaviour
             }
         }
 
+        list.Sort();
         return list;
     }
 
@@ -89,7 +90,6 @@ public class InteractionManager : MonoBehaviour
             Debug.Log("No interactions between " + initiator.name + " and " + target.name + ".");
             return null;
         }
-        interactions.Sort();
         for(int j=0; j<interactions.Count; j++)
             Debug.Log(initiator.name + " can " + interactions[j].GetName() + " [" + target.name + "] with prio=" + interactions[j].GetPriority());
 

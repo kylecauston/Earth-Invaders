@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1308479690379430237}
   - component: {fileID: 1308479690379430238}
   m_Layer: 0
-  m_Name: Footsoldier Drop Pod
+  m_Name: Footsoldier Deployer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
   preview: {fileID: 5476416293669808584, guid: 374ef4a9768f47f4b89ce2553de3e6c8, type: 3}
   unitToSpawn: {fileID: 7430100469012901200, guid: 0a34a8ea70e1cff43ac9b1cf8988e7e4,
     type: 3}
-  cost: 0
-  animationName: Spawn
+  cost: 100
+  animationName: DropSpawn
   uiIcon: {fileID: 0}
   positionMoving: 1
 --- !u!1001 &4437181642593803349

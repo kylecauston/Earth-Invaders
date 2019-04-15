@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance = null;
 
     public Spawnable[] spawnables;
+    public ToggleGroup spawnButtons;
 
     private int currentlySelected = -1;
-    private SpawnPreview preview;
+    public SpawnPreview preview;
 
     private Vector3 cached = new Vector3();
 
@@ -32,11 +34,14 @@ public class SpawnManager : MonoBehaviour
 
     public void SetSelected(int i)
     {
-        if(i < 0 || i > spawnables.Length)
+        if (preview)
+        {
+            Destroy(preview.gameObject);
+        }
+
+        if (i < 0 || i > spawnables.Length)
         {
             currentlySelected = -1;
-            if(preview)
-                Destroy(preview.gameObject);
             preview = null;
             return;
         }
@@ -45,20 +50,30 @@ public class SpawnManager : MonoBehaviour
             return;
 
         currentlySelected = i;
+        
         // when we select a new unit to spawn, create a preview based on selected unit.
         preview = (SpawnPreview)Instantiate(spawnables[currentlySelected].preview);
-
+        
         // unselect unit if you're in spawn mode
         TheGameManager.GameManager.instance.SelectEntity(null);
     }
 
-    private void Update()
+    public void ToggleSpawning(bool spawning)
+    {
+        if(!spawning)
+            SetSelected(-1);
+    }
+
+    public void Update()
     {
         if (currentlySelected < 0)
             return;
 
+        if (TheGameManager.GameManager.instance.currency < spawnables[currentlySelected].cost)
+            SetSelected(-1);
+
         // if we have something we want to spawn, show preview.
-        if(InputManager.instance.GetMouseTerrainCoords(out cached))
+        if (preview && InputManager.instance.GetMouseTerrainCoords(out cached))
         {
             preview.transform.SetPositionAndRotation(cached, preview.transform.rotation);
         }

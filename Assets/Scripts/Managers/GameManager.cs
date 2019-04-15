@@ -13,7 +13,9 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public Entity selectedEntity;
         public Material ground = null;
 
-        private int currency = 1000;
+        private Entity interactionTarget;
+
+        public int currency = 1000;
 
         private void Awake()
         {
@@ -25,6 +27,11 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void Start()
+        {
+            UIManager.instance.UpdateCurrencyWindow(currency);
         }
 
         public Entity GetSelectedEntity()
@@ -39,6 +46,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
                 e = null;
             }
 
+            
             selectedEntity = e;
             if(ground)
             {
@@ -74,30 +82,40 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
             {
                 if (!(CanControl(selectedEntity)))
                     return;
-
-                // How do we want to do behavior? we need a behavior tree 
-                // for stuff like:
-                // "Interact with [Far Object x]"
-                // is translated to
-                // "Move to x" + "Interact with x"
-                // Furthermore, not all entities can move. How do we check this?
-
-                SpawnManager.instance.SetSelected(-1);
-                AgentAI ai = selectedEntity.GetComponent<AgentAI>();
-                Interaction interaction = InteractionManager.instance.GetInteraction(selectedEntity, e, 0);
-                if (ai && interaction != null)
-                    ai.AssignTask(interaction, e.gameObject);
                 
+                SpawnManager.instance.SetSelected(-1);
+                interactionTarget = e;
+                UIManager.instance.ShowInteractionPane(selectedEntity, e);
             }
+        }
+
+        public void InteractionSelected(int i)
+        {
+            UIManager.instance.HideInteractionPane();
+            AgentAI ai = selectedEntity.GetComponent<AgentAI>();
+            Interaction interaction = InteractionManager.instance.GetInteraction(selectedEntity, interactionTarget, i);
+            if (ai && interaction != null)
+                ai.AssignTask(interaction, interactionTarget.gameObject);
+
+            interactionTarget = null;
         }
 
         public void TerrainClicked(Vector3 click)
         {
             // When we click the terrain it generally denotes a movement action.
+
+
             int i = SpawnManager.instance.GetSelected();
-            if (i != -1 && SpawnManager.instance.spawnables[i].cost < currency)
+            if (i != -1)
             {
-                SpawnManager.instance.Spawn(click);
+                if (SpawnManager.instance.spawnables[i].cost <= currency)
+                {
+                    if (SpawnManager.instance.preview.CanSpawn())
+                    {
+                        SpawnManager.instance.Spawn(click);
+                        SpendResource(SpawnManager.instance.spawnables[i].cost);
+                    }
+                }
                 return;
             }
 
@@ -120,14 +138,14 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
 
         public void ActionKey()
         {
-            //SpawnManager.instance.SetSelected(0);
             if(CanControl(selectedEntity))
             {
                 Building b = selectedEntity.gameObject.GetComponent<Building>();
                 if(!b)
                 {
                     Transport t = selectedEntity.gameObject.GetComponent<Transport>();
-                    t.RemoveEntity(0);
+                    if (t)
+                        t.RemoveEntity(0);
                 }
                 else
                 {
@@ -139,6 +157,7 @@ namespace TheGameManager    // avoid using Unity's prebuilt GameManager
         public void SpendResource(int amount)
         {
             currency = Mathf.Max(0, currency - amount);
+            UIManager.instance.UpdateCurrencyWindow(currency);
         }
     }
 }

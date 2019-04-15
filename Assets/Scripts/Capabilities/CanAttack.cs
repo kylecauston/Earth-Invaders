@@ -162,8 +162,11 @@ public class CanAttack : MonoBehaviour
         //   place along the line between last corner and target.
         if (bestPlace == -1)
         {
-            location = corners[corners.Length - 2] - target.transform.position;
-            location = target.transform.position + location.normalized * weapon.GetMaxRange() * 0.8f;
+            if (corners.Length >= 2)
+            {
+                location = corners[corners.Length - 2] - target.transform.position;
+                location = target.transform.position + location.normalized * weapon.GetMaxRange() * 0.8f;
+            }
         }
         else
         {

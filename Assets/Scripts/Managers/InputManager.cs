@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     public Entity hoveredOn;
     public GameObject clickedOn;
+    public EventSystem eventSystem;
 
     private Camera camera;
     private int terrainMask = 1 << 11;
@@ -31,9 +33,11 @@ public class InputManager : MonoBehaviour
         // need this since Unity doesn't pass RClick to game objects
         if (Input.GetMouseButtonDown(1))
         {
+            UIManager.instance.HideInteractionPane();
             if (hoveredOn)
             {
-                TheGameManager.GameManager.instance.EntityClicked(hoveredOn, 1);
+                if (!eventSystem.IsPointerOverGameObject())
+                    TheGameManager.GameManager.instance.EntityClicked(hoveredOn, 1);
             }
             else
             {
@@ -64,8 +68,10 @@ public class InputManager : MonoBehaviour
             button = 0;
         else if (Input.GetMouseButtonDown(1))
             button = 1;
-
-        TheGameManager.GameManager.instance.EntityClicked(e, button);
+        
+        // don't pass clicks through if you're clicking UI
+        if(!eventSystem.IsPointerOverGameObject())
+            TheGameManager.GameManager.instance.EntityClicked(e, button);
     }
 
     public bool GetMouseTerrainCoords(out Vector3 v)

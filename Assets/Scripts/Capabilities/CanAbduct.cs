@@ -35,6 +35,13 @@ public class CanAbduct : MonoBehaviour
         // We could call StartCapture on victim, and call StopCapture if we let them go.
         // These methods could handle enabling and disabling their own navmesh. 
         // However, this still requires the OnDeath change.
+
+        NavMeshMovement navMeshMovement = victim.gameObject.GetComponent<NavMeshMovement>();
+        if(navMeshMovement)
+        {
+            navMeshMovement.agent.enabled = false;
+            //Destroy(navMeshMovement.agent);
+        }
     }
 
     // TODO: This should really be it's own component, since not everything that captures would use a tractor beam
@@ -51,7 +58,6 @@ public class CanAbduct : MonoBehaviour
             //      good or literally using an animation.
             // There's no reason this needs to be physically moving the entity.
             float v = 0.2f + (Mathf.Pow(1 - (Mathf.Abs(myPos.y - targPos.y) / myPos.y), 2));
-            Debug.Log(v);
             toShip *= pullStrength * v;
             // pull target slightly closer
             targ.transform.Translate(toShip);

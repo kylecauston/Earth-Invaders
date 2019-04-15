@@ -11,12 +11,13 @@ public class SpawnPreview : MonoBehaviour
     private List<string> collisionTags;
     private enum Mode { Valid, Invalid }
     private Mode currentMode = Mode.Invalid;
-    private Renderer renderer;
+    private Renderer[] renderers;
 
     public void Start()
     {
         collisionTags = new List<string>();
-        renderer = GetComponentInChildren<Renderer>();
+        renderers = GetComponentsInChildren<Renderer>();
+        InvalidMode();
     }
 
     public void Update()
@@ -35,18 +36,23 @@ public class SpawnPreview : MonoBehaviour
     private void InvalidMode()
     {
         currentMode = Mode.Invalid;
-        renderer.material = invalidMaterial;
+        for(int i=0; i<renderers.Length; i++)
+        {
+            renderers[i].material = invalidMaterial;
+        }
     }
 
     private void ValidMode()
     {
         currentMode = Mode.Valid;
-        renderer.material = validMaterial;
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = validMaterial;
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.gameObject.tag);
         collisionTags.Add(collision.gameObject.tag);
     }
 
@@ -73,5 +79,10 @@ public class SpawnPreview : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool CanSpawn()
+    {
+        return currentMode == Mode.Valid;
     }
 }

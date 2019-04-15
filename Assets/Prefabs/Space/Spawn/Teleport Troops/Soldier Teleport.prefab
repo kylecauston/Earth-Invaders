@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 475631773258754395}
   - component: {fileID: 475631773258754396}
   - component: {fileID: 6419831993756411903}
+  - component: {fileID: 4581586653535998149}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08aaf1a7e1404ee499da8a5efc3d58a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4581586653535998149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475631773258754399}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4382713840207357965
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +116,7 @@ GameObject:
   - component: {fileID: 5379351674978483585}
   - component: {fileID: 3248568027971266767}
   m_Layer: 0
-  m_Name: Teleport Soldier
+  m_Name: Soldier Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +168,7 @@ MonoBehaviour:
   preview: {fileID: 5476416293669808584, guid: 07e9b61a99a542c4481a0541e14db747, type: 3}
   unitToSpawn: {fileID: 7430100469012901200, guid: 0a34a8ea70e1cff43ac9b1cf8988e7e4,
     type: 3}
-  cost: 0
+  cost: 50
   animationName: TeleportSpawn
   uiIcon: {fileID: 0}
   positionMoving: 0
